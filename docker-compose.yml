@@ -1,0 +1,22 @@
+version: '3'
+services:
+  api:
+      build: .
+      command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      volumes:
+          - .:/app
+          - bootstrap-volume:/bootstrap-volume
+      ports:
+          - "8000:8000"
+      environment:
+          DEBUG: "true"
+  db:
+    image: postgres:12
+    environment:
+      - POSTGRES_USER=local
+      - POSTGRES_PASSWORD=local
+      - POSTGRES_DB=foxscan
+    ports:
+      - "5432:5432"
+volumes:
+  bootstrap-volume:
