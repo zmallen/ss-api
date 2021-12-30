@@ -1,12 +1,13 @@
 # fly.toml file generated for ssapi on 2021-12-19T15:00:01-05:00
 
-app = "ssapi"
+app = "ssapiblog"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
 [env]
+  ENVIRONMENT = "PROD"
   DEBUG = "False"
 
 [experimental]
