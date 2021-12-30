@@ -10,6 +10,7 @@ services:
       - "8000:8000"
     environment:
       DEBUG: "true"
+      DATABASE_URL: "postgres://local:local@db:5432/ssapi"
     depends_on:
       - db
   db:
