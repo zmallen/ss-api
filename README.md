@@ -10,10 +10,10 @@ Some features of this template:
 3. Local dev via `docker compose` and a `Dockerfile` to run the app
 4. OpenAPI and Swagger ready via `drf-yasg` package
 5. Ready to go: clone and run on fly via `fly launch`, then run a migration and get a dev token via:
+  * `fly ssh console -C 'bash /app/provision_db.sh'`
   * `fly ssh console -C 'python /app/manage.py migrate`
   * `fly ssh console -C 'python /app/manage.py getdevtoken'`
 
 For a blog post going into more detail of the app makeup, please go to:
 
-** CHANGE THIS **
-https://dev.to/teachmetechy/django-rest-framework-on-flyio-29gh-temp-slug-7902488?preview=9cf35c7e8c0dd689a1be384dcdc2fc11a8d33ba79aa0bed4035e3c3aec8fd01b537ea3fb8588b4606b25ca16c4f7bfdca34e0a78c06f21a8c3924458
+https://dev.to/teachmetechy/django-rest-framework-on-flyio-582p
