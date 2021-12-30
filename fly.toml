@@ -1,0 +1,46 @@
+# fly.toml file generated for ssapi on 2021-12-19T15:00:01-05:00
+
+app = "ssapi"
+
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
+  DEBUG = "False"
+
+[experimental]
+  allowed_public_ports = []
+  auto_rollback = true
+
+[[services]]
+  internal_port = 8000
+  protocol = "tcp"
+
+
+  [[services.http_checks]]
+    interval = "15s"
+    grace_period = "5s"
+    method = "get"
+    path = "/ping"
+    protocol = "http"
+    timeout = "2s"
+    tls_skip_verify = false
+
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
